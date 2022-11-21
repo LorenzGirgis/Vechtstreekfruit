@@ -1,0 +1,2 @@
+* Hoe installeer ik het Tailwind-pakket op mijn computer?
+https://tailwindcss.com/docs/installation
