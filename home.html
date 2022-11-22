@@ -5,34 +5,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <script src="https://cdn.tailwindcss.com"></script> <!-- Niet verwijderen -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./CSS/main.css">
+    <title>Vechtstreekfruit in kaart</title>
 </head>
 
 <body>
-    <!-- Test -->
-    <div class="bg-gray-200">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-            <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                <span class="block">Ready to dive in?</span>
-                <span class="block text-indigo-600">Start your free trial today.</span>
-            </h2>
-            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-                <div class="inline-flex rounded-md shadow">
-                    <a href="#"
-                        class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
-                        Get started
-                    </a>
-                </div>
-                <div class="ml-3 inline-flex rounded-md shadow">
-                    <a href="#"
-                        class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
-                        Learn more
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <nav class="bg-inherit px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0">
+    
+        <section class="container flex flex-wrap items-center justify-between mx-auto">
+    
+            <header href="https://flowbite.com/" class="flex items-center">
+                <img src="./Assets/logo.png" class="h-6 mr-3 sm:h-9 drop-shadow-md" alt="Flowbite Logo">
+                <a href="home.html"
+                    class="self-center text-xl subFont whitespace-nowrap dark:text-white drop-shadow-md">Vechtstreekfruit</a>
+            </header>
+    
+            <aside class="flex md:order-2">
+    
+                <button data-collapse-toggle="navbar-sticky" type="button"
+                    class="inline-flex items-center p-2 text-sm grey rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Side menu</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+    
+            </aside>
+    
+            <nav class="hidden w-full md:flex md:max-w-lg md:order-1 pr-96" id="navbar-sticky">
+                <ul
+                    class="flex flex-col w-1/3 text-xl p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+    
+                    <li class="pl-10">
+                        <a href="#"
+                            class=" truncate block py-2 pl-3 pr-4 grey rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 drop-shadow-md"
+                            aria-current="page">Over ons</a>
+                    </li>
+    
+                    <li class="pl-10">
+                        <a href="#"
+                            class="block py-2 pl-3 pr-4 grey rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 drop-shadow-md">Diensten</a>
+                    </li>
+                    <li class="pl-10">
+                        <a href="#"
+                            class="block py-2 pl-3 pr-4 grey rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-500 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 drop-shadow-md">Contact</a>
+                    </li>
+
+                </ul>
+            </nav>
+
+        </section>
+
+    </nav>
+
 </body>
 
 </html>
