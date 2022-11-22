@@ -1,0 +1,31 @@
+/* Font + color */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600&display=swap');
+
+.subFont {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 400;
+    color: #454545;
+}
+
+.mainFont {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    color: #454545;
+}
+
+.grey {
+    color: #454545;
+}
+
+.orchardGreen {
+    background: linear-gradient(#45B649, #DCE35B);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Body */
+body {
+    background-color: #fefefe;
+    margin: 0;
+    padding: 0;
+}
