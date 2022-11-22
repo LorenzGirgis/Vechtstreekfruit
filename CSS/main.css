@@ -1,16 +1,25 @@
 /* Font + color */
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;400;600&display=swap');
 
 .subFont {
     font-family: 'League Spartan', sans-serif;
-    font-weight: 400;
     color: #454545;
+        text-align: left;
+        font-weight: 200;
+    }
+    
+    .title {
+        font-family: 'League Spartan', sans-serif;
+        color: #454545;
+        text-align: left;
+    font-weight: 400;
 }
 
 .mainFont {
     font-family: 'League Spartan', sans-serif;
     font-weight: 600;
     color: #454545;
+    text-align: left;
 }
 
 .grey {
@@ -28,4 +37,25 @@ body {
     background-color: #fefefe;
     margin: 0;
     padding: 0;
-}
+    height: 200vh;
+    }
+    
+    /* Flex middle of the page on left side */
+    .centered {
+        display: flex;
+        justify-content: flex-start;
+        align-content: center;
+        height: 45vh;
+        padding-left: 5vw;
+    }
+    
+    .spacing {
+        padding-top: 3vh;
+    }
+    
+    
+    .bottom {
+        padding-top: 36vh;
+        padding-left: 15vw;
+    }
+    
