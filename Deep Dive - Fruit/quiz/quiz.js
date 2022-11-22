@@ -10,7 +10,7 @@ var quiz = {
             a: 1
         },
         {
-            q: "Hoe plaats je COMMENTS in Python code?",
+            q: "Hoe eplaats je COMMENTS in Python code?",
             o: [
                 "//* dit is een comment *//",
                 "/*dit is een comment */",
