@@ -37,7 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 300vh;
+    height: 400vh;
     background-color: #fefefe;
     margin: 0;
     padding: 0;
@@ -51,9 +51,14 @@ body {
 #page2 {
     width: 100vw;
     height: 100vh;
-    background-color: #45B649;
 }
 
+#page3 {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../Assets/home/farmer.jpg");
+    background-size: cover;
+}
 /* Body */
 /* Flex middle of the page on left side */
 .centered {
