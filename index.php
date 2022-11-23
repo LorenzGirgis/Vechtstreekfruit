@@ -1,3 +1,38 @@
+<?php
+$dsn = "mysql:dbname=restaurant;host=localhost";
+$servername = "localhost";
+$username = "bit_academy";
+$password = "bit_academy";
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=vechtsfruit", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo $e->getMessage();
+}
+
+if (isset($_POST['submit'])) {
+$rasnaam = $_POST['rasnaam'];
+$soort = $_POST['soort'];
+$aantal = $_POST['aantal'];
+$tijdvak = $_POST['tijdvak'];
+$jaarcheck = $_POST['jaarcheck'];
+$latitude = $_POST['latitude'];
+$longitude = $_POST['longitude'];
+
+$pdoQuery = " INSERT INTO `bomen`(`rasnaam`, `soort`, `aantal`, `tijdvak`, `jaarcheck`, `latitude`, `longitude`) VALUES (:rasnaam, :soort, :aantal, :tijdvak, :jaarcheck, :latitude, :longitude)";
+$pdoQuery_run = $conn->prepare($pdoQuery);
+$pdoQuery_execc = $pdoQuery_run->execute(array(":rasnaam"=>$rasnaam, ":soort"=>$soort, ":aantal"=>$aantal, ":tijdvak"=>$tijdvak, ":jaarcheck"=>$jaarcheck, ":latitude"=>$latitude, ":longitude"=>$longitude));
+if ($pdoQuery_execc) {
+    echo "<p><center>Boom is toegevoegd</center></p>";
+} else {
+    echo "<p><center>Boom is niet toegevoegd</center></p>";
+}
+} 
+
+$mirvat = $conn->prepare("SELECT * FROM bomen");
+$mirvat->execute();
+?>
+
 <!DOCTYPE html>
 <html lang='en'>
   <head>
@@ -16,5 +51,28 @@
   <body>
     <div id="map"></div>
     <script src="script.js"></script>
+    <div class='center'>
+<form action="" method="post">
+    <input type="text" name="rasnaam" placeholder="Rasnaam" reguired>
+    <input type="text" name="soort" placeholder="Soort" reguired>
+    <input type="number" name="aantal" placeholder="Aantal" reguired>
+    <input type="text" name="tijdvak" placeholder="Tijdvak" reguired>
+    <input type="number" name="jaarcheck" placeholder="Jaarcheck" reguired>
+    <input type="text" name="latitude" placeholder="Latitude" reguired>
+    <input type="text" name="longitude" placeholder="Longitude" required>
+    <button type="submit" name="submit"> Submit</button>
+</form>
+</div>
+<br>
   </body>
-</html>     
+</html>    
+
+<script>
+// function to make marker
+
+var database = <?php echo json_encode($mirvat->fetchAll(PDO::FETCH_ASSOC)); ?>;
+for (var i = 0; i < database.length; i++) {
+    var marker = L.marker([database[i].latitude, database[i].longitude]).addTo(map);
+    marker.bindPopup("<b>Rasnaam: </b>" + database[i].rasnaam + "<br><b>Soort: </b>" + database[i].soort + "<br><b>Aantal: </b>" + database[i].aantal + "<br><b>Tijdvak: </b>" + database[i].tijdvak + "<br><b>Jaarcheck: </b>" + database[i].jaarcheck + "<br><b>Latitude: </b>" + database[i].latitude + "<br><b>Longitude: </b>" + database[i].longitude).openPopup();
+}
+  </script>
