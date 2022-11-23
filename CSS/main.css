@@ -73,8 +73,40 @@ body {
 }
 
 
-.bottom {
-    padding-top: 35vh;
-        padding-left: 2vw;
-    }
-    
+/* test keyframes */
+
+    .i{
+	
+	display: inline-flex;
+	width: 15%;
+	animation: anim 2.5s ease-in-out infinite;
+	transform:  translateY(-120%) rotate(0deg);
+
+}
+.n1{
+ 	animation-delay: 0.1s;
+}
+.n2{
+	animation-delay: 1.2s;
+}
+.n3{
+	animation-delay: 2s;
+}
+.n4{
+	animation-delay: 1.4s;
+}
+.n5{
+	animation-delay: 2.4s;
+}
+.n6{
+	animation-delay: 0.6s;	
+}
+
+@keyframes anim{
+	0%{
+		transform:  translateY(-120%) rotate(0deg);
+	}
+	100%{
+		transform: translateY(120vh) rotate(-360deg);
+	}
+}
