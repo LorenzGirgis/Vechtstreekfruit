@@ -1,50 +1,48 @@
 var quiz = {
     data: [{
-            q: "Wat is een correcte manier om Hello world in Python te printen?",
+            q: "In welke landen groeien appels die we in Nederland kunnen kopen?",
             o: [
-                "echo ('Hello world');",
-                "print ('Hello world');",
-                "p('Hello world');",
-                "echo 'Hello world';"
+                "Nederland, Frankrijk, Spanje, Zuid-Afrika, China, Nieuw-Zeeland",
+                "Noorwegen, Turkije, Alaska, Canada, Nigeria",
+                "Appels komen uit al deze landen",
             ],
-            a: 1
+            a: 0
         },
         {
-            q: "Hoe plaats je COMMENTS in Python code?",
+            q: "Welke appel is geen Nederlandse appel?",
             o: [
-                "//* dit is een comment *//",
-                "/*dit is een comment */",
-                "//dit is een comment",
-                "#dit is een comment"
+                "Elstar",
+                "Goudreinet",
+                "Jonagold",
+                "Fuji"
             ],
             a: 3
         },
         {
-            q: "Hoe maak je een variabele met de numerieke waarde 5?",
+            q: "Kun je een appel eten met schil?",
             o: [
-                "x =5",
-                "x = int(5)",
-                "beide antwoorden zijn correct"
+                "ja",
+                "nee",
+            ],
+            a: 0
+        },
+        {
+            q: "Welke appel is het populairste ras in Nederland?",
+            o: [
+                "Elstar",
+                "Goudreinet",
+                "Rubens",
+            ],
+            a: 0
+        },
+        {
+            q: "Wanneer worden de meeste Nederlandse appels geoogst?",
+            o: [
+                "In mei en juni",
+                "In juli en augustus",
+                "In september en oktober"
             ],
             a: 2
-        },
-        {
-            q: "Wat is de juiste manier om een functie in Python te maken?",
-            o: [
-                "def myFunction():",
-                "function myfunction():",
-                "create myFunction():",
-                "myFunction():"
-            ],
-            a: 0
-        },
-        {
-            q: "== betekent gelijk",
-            o: [
-                "juist",
-                "onjuist"
-            ],
-            a: 0
         }
     ],
 
