@@ -96,3 +96,6 @@ button:active {
     background: #ffe8e8;
     border: 1px solid #c78181;
 }
+#home {
+    padding-bottom: 80vh;
+}
