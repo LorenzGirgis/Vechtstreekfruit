@@ -4,7 +4,7 @@ class DB {
     protected function connect() {
           $server = "localhost";
           $username = "root"; // bit_academy
-          $password = ""; // bit_academy
+          $password = "root"; // bit_academy
           $dbname = "vechtsfruit";
           
           try {
