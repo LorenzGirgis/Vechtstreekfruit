@@ -165,12 +165,10 @@ $mirvat->execute();
     </div>
                         </div>
 </form>
+                            
 
 
-
-
-    <div class="flex flex-col">
-  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="flex">
     <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
       <div class="overflow-hidden">
         <table class="min-w-full">
@@ -234,16 +232,17 @@ $mirvat->execute();
               </td>
 
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              <a href="edit.php?id=<?= $row['id'] ?>">Edit</a>
-            <a onclick="return confirm('Are you sure you want to delete this entry?')" href="delete.php?id=<?= $row[
-                'id'
-            ] ?>" class='btn btn-danger'>Delete</a>   
-
+              <a href="edit.php?id=<?= $row['id'] ?>">
+              <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Edit</button>
+</a>
+            <a href="delete.php?id=<?= $row['id'] ?>">
+              <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+          </a>
+                </td>
             </tr>
             <?php } ?>
           </tbody>
         </table>
-      </div>
     </div>
   </div>
 </div>
