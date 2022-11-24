@@ -91,26 +91,23 @@ body {
     padding-top: 35vh;
     padding-left: 2vw;
 }
-/* Hamburger */
-/* .highlight #myLinks {
-    display: none;
-}
 
-*/ */ .highlight a {
+/* Hamburger */
+
+.highlight a {
+    float: left;
     color: #454545;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 18px;
     display: block;
 }
 
 .highlight a.icon {
-    display: block;
+    display: inline;
     position: absolute;
     right: 0;
     top: 0;
-    padding-right: 1vw;
-        padding-top: 1vh;
 }
 
 .highlight a:hover {
