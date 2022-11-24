@@ -5,15 +5,17 @@ if (isset($_SESSION["username"])) {
     if ($_SESSION["username"] === "Admin") {
 ?>
 <?php
-$dsn = "mysql:dbname=restaurant;host=localhost";
-$servername = "localhost";
-$username = "bit_academy";
-$password = "bit_academy";
+$host = 'localhost';
+$username = 'vechtstreekfruit';
+$password = 'zxy5qhr6JWP3cjc!jaf';
+$dbname = 'vechtstreekfruit';
+
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=vechtsfruit", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $conn = new PDO("mysql:host=localhost;port=3306;dbname=vechtstreekfruit", $username, $password);
+	// set the PDO error mode to exception
+	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    echo $e->getMessage();
+	echo "Connection failed: " . $e->getMessage();
 }
 ?>
 <?php
@@ -120,7 +122,9 @@ $mirvat->execute();
                     </li>
                 </div>
             </ul>
-                </nav>
+                </nav>`
+    </section>
+                <br>
                 <br>
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 <form action="" method="post">
@@ -134,9 +138,45 @@ $mirvat->execute();
     <button type="submit" name="submit"> Submit</button>
 </form>
 </div>
+<br>
 <a href="kaart.php">
     Kaart
 </a>
+<br>
+<br>
+<table class="center">
+                <tr>
+                    <th>id</th>
+                    <th>Rasnaam</th>
+                    <th>Soort</th>
+                    <th>Aantal</th>
+                    <th>Tijdvak</th>
+                    <th>Jaarcheck</th>
+                    <th>Latitude</th>
+                    <th>Longitude</th>
+                    <th>Actie</th>
+                </tr>
+                <?php
+                while ($row = $mirvat->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                <tr>
+                    <td><?= $row["id"] ?></td>
+                    <td><?= $row["rasnaam"] ?></td>
+                    <td><?= $row["soort"] ?></td>
+                    <td><?= $row["aantal"] ?></td>
+                    <td><?= $row["tijdvak"] ?></td>
+                    <td><?= $row["jaarcheck"] ?></td>
+                    <td><?= $row["latitude"] ?></td>
+                    <td><?= $row["longitude"] ?></td>
+                    <td>
+                        <a href="edit.php?id=<?= $row["id"] ?>">Edit</a>
+                            <a onclick="return confirm('Are you sure you want to delete this entry?')" href="delete.php?id=<?= $row["id"]  ?>" class='btn btn-danger'>Delete</a>   
+                    </td>
+                </tr>
+                <?php
+                }
+                ?>
+            </table>
 </body>
 </html>
 <?php

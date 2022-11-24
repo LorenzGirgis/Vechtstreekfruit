@@ -1,14 +1,17 @@
 <?php
-$dsn = "mysql:dbname=restaurant;host=localhost";
-$servername = "localhost";
-$username = "bit_academy";
-$password = "bit_academy";
+$host = 'localhost';
+$username = 'vechtstreekfruit';
+$password = 'zxy5qhr6JWP3cjc!jaf';
+$dbname = 'vechtstreekfruit';
+
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=vechtsfruit", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $conn = new PDO("mysql:host=localhost;port=3306;dbname=vechtstreekfruit", $username, $password);
+	// set the PDO error mode to exception
+	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    echo $e->getMessage();
+	echo "Connection failed: " . $e->getMessage();
 }
+
 
 if (isset($_POST['submit'])) {
 $rasnaam = $_POST['rasnaam'];
@@ -42,7 +45,7 @@ $mirvat->execute();
     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
     crossorigin=""/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.78.0/dist/L.Control.Locate.min.css"/>
-    <link rel="stylesheet" type="text/css" href="style.css" /> 
+    <link rel="stylesheet" type="text/css" href="CSS/style.css" /> 
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
     crossorigin=""></script>
@@ -50,7 +53,7 @@ $mirvat->execute();
   </head>
   <body>
     <div id="map"></div>
-    <script src="script.js"></script>
+    <script src="JS/script.js"></script>
 
   </body>
 </html>    
@@ -60,7 +63,7 @@ $mirvat->execute();
 
 var database = <?php echo json_encode($mirvat->fetchAll(PDO::FETCH_ASSOC)); ?>;
 for (var i = 0; i < database.length; i++) {
-    var marker = L.marker([database[i].latitude, database[i].longitude]).addTo(map);
-    marker.bindPopup("<b>Rasnaam: </b>" + database[i].rasnaam + "<br><b>Soort: </b>" + database[i].soort + "<br><b>Aantal: </b>" + database[i].aantal + "<br><b>Tijdvak: </b>" + database[i].tijdvak + "<br><b>Jaarcheck: </b>" + database[i].jaarcheck + "<br><b>Latitude: </b>" + database[i].latitude + "<br><b>Longitude: </b>" + database[i].longitude)();
+    var marker = L.marker([database[i].latitude, database[i].longitude], {icon: greenIcon}).addTo(map);
+    marker.bindPopup("<b>Rasnaam: </b>" + database[i].rasnaam + "<br><b>Soort: </b>" + database[i].soort + "<br><b>Aantal: </b>" + database[i].aantal + "<br><b>Tijdvak: </b>" + database[i].tijdvak + "<br><b>Jaarcheck: </b>" + database[i].jaarcheck + "<br><b>Latitude: </b>" + database[i].latitude + "<br><b>Longitude: </b>" + database[i].longitude);
 }
   </script>

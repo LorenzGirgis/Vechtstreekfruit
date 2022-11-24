@@ -1,11 +1,10 @@
 <?php
 class DB {
-
     protected function connect() {
           $server = "localhost";
-          $username = "root"; // bit_academy
-          $password = ""; // bit_academy
-          $dbname = "vechtsfruit";
+          $username = "vechtstreekfruit";
+          $password = "zxy5qhr6JWP3cjc!jaf";
+          $dbname = "vechtstreekfruit";
           
           try {
                $conn = new PDO(
@@ -25,3 +24,4 @@ class DB {
           
      }
 }
+
