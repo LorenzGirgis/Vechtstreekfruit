@@ -19,30 +19,15 @@
         <header class="pb-5">
             <nav class="bg-transparent static w-full">
                 <div class="container flex flex-wrap items-center justify-between mx-auto">
-
                     <div href="https://flowbite.com/" class="flex items-center justify-start">
                         <img src="./Assets/logo.png" class="h-6 mr-3 sm:h-9 drop-shadow-md" alt="Flowbite Logo">
                         <a href="home.html"
                             class="self-center text-xl title whitespace-nowrap drop-shadow-md">Vechtstreekfruit</a>
                     </div>
 
-                    <aside class="flex md:order-2">
-                        <button data-collapse-toggle="navbar-sticky" type="button"
-                            class="inline-flex items-center p-2 text-sm grey rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-                            aria-controls="navbar-sticky" aria-expanded="false">
-                            <span class="sr-only">Side menu</span>
-                            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                    </aside>
-
-                    <div class="hidden w-full md:flex md:max-w-xs md:order-1 justify-center pr-96" id="navbar-sticky">
+                    <div class="hidden w-full md:flex md:max-w-xs md:order-1 justify-center mr-96 lg:flex" id="navbar-sticky">
                         <ul
-                            class="flex flex-col text-xl p-4  mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+                            class="flex flex-col text-xl p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 mr-96">
                             <li class="pl-10">
                                 <a href="#"
                                     class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md"
@@ -68,6 +53,44 @@
                         </ul>
                     </div>
 
+                    <aside class="flex md:order-2 lg:hidden topnav">
+                        <div id="myLinks"
+                            class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md">
+                            <ul
+                                class="flex flex-col text-xl p-4  mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+                                <li>
+                                    <a href="#"
+                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md"
+                                        aria-current="page">Over ons</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md"
+                                        aria-current="page">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md">Diensten</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md">Kaart</a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </aside>
                 </div>
             </nav>
         </header>
@@ -98,9 +121,28 @@
     </section>
 
     <section id="page2">
-        <div class="z-0 w-full h-full">
-            <iframe src='https://my.spline.design/untitled-965b91290eb7e3f37c500c5499022a76/' frameborder='0'
-                width='100%' height='100%'></iframe>
+        <div class="relative flex items-center align-middle h-screen overflow-hidden">
+            <div class="absolute z-30 text-2xl text-white bg-transparent bg-opacity-50 rounded-lg p-10 ml-28 glass">
+                <div class="flex justify-start flex-col">
+                    <h1 class="grey mainFont">Hoeveel fruit verspillen we per jaar?</h1>
+                    <p class="grey subFont">
+                        Wereldwijd verspillen we op dit moment 1555 miljoen ton aan voedsel per jaar.
+                        <br> Dat is 1/3 van het totale voedsel dat geproduceerd wordt.
+                        <br> Waaonder, 644 miljoen ton afval (42%) komt van fruit en groenten.
+                        <br>
+                    </p>
+                    <!-- Button when clicked goes to other page -->
+                    <a href="https://toogoodtogo.be/nl-be/movement/knowledge/what-food-is-wasted" target="_blank">
+                        <button class="grey rounded-md read">
+                            Lees meer
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <video autoplay loop muted class="absolute z-10 w-auto min-w-full min-h-full max-w-none">
+                <source src="./Assets/home/apples.mp4" type="video/mp4" alt="Falling Apples" />
+                Your browser does not support the video tag.
+            </video>
         </div>
     </section>
 
@@ -109,17 +151,17 @@
             <div class="container mx-auto">
                 <div class="flex flex-wrap justify-start align-middle">
                     <div class="text-center">
-                        <h1 class="text-6xl mainFont text-white drop-shadow-md">Onze visie</h1>
-                        <p class="text-4xl subFont spacing pt-10 text-white drop-shadow-md">Het bouwen van een
+                        <h1 class="text-5xl mainFont text-white drop-shadow-md">Onze visie</h1>
+                        <p class="text-3xl subFont spacing pt-10 text-white drop-shadow-md">Het bouwen van een
                             collectief
                             van
                             boomgaarden die samen zorgen voor:
                         </p>
-                        <ul class="text-3xl subFont text-white drop-shadow-md">
-                            <li class="pt-20">Het versterken van lokale biodiversiteit en cultureel erfgoed</li>
-                            <li class="pt-20">Kennis uitwisseling, aanplant en onderhoud</li>
-                            <li class="pt-20">Verwerken van de oogst tot mooie lokale producten</li>
-                            <li class="pt-20">Herwaardering van bijzondere, oude fruitrassen</li>
+                        <ul class="text-2xl subFont text-white drop-shadow-md overflow-auto">
+                            <li class="pt-16">Het versterken van lokale biodiversiteit en cultureel erfgoed</li>
+                            <li class="pt-16">Kennis uitwisseling, aanplant en onderhoud</li>
+                            <li class="pt-16">Verwerken van de oogst tot mooie lokale producten</li>
+                            <li class="pt-16">Herwaardering van bijzondere, oude fruitrassen</li>
                         </ul>
                     </div>
                 </div>
@@ -130,7 +172,16 @@
         <!-- Map -->
 
     </section>
-
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
 </body>
 
 </html>
