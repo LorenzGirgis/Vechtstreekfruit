@@ -40,7 +40,7 @@
                             </li>
                             <li class="pl-10">
                                 <a href="#"
-                                    class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md">Diensten</a>
+                                    class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md">Quiz</a>
                             </li>
                             <li class="pl-10">
                                 <a href="#"
@@ -53,43 +53,41 @@
                         </ul>
                     </div>
 
-                    <aside class="flex md:order-2 lg:hidden topnav">
-                        <div id="myLinks"
-                            class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md">
-                            <ul
-                                class="flex flex-col text-xl p-4  mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
+                    <aside class="flex md:order-2 lg:hidden highlight">
+                        <div id="navbar">
+                            <ul>
                                 <li>
                                     <a href="#"
-                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md"
+                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:p-0 drop-shadow-md"
                                         aria-current="page">Over ons</a>
                                 </li>
                                 <li>
                                     <a href="#"
-                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md"
+                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent drop-shadow-md"
                                         aria-current="page">Blog</a>
                                 </li>
                                 <li>
                                     <a href="#"
-                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md">Diensten</a>
+                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent drop-shadow-md">Quiz</a>
                                 </li>
                                 <li>
                                     <a href="#"
-                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md">Kaart</a>
+                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent drop-shadow-md">Kaart</a>
                                 </li>
                                 <li>
                                     <a href="#"
-                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md">Contact</a>
+                                        class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent drop-shadow-md">Contact</a>
                                 </li>
                             </ul>
                         </div>
-                        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <button href="javascript:void(0);" class="icon" onclick="hamburger()">
                             <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
                                     d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
                                     clip-rule="evenodd"></path>
                             </svg>
-                        </a>
+                        </button>
                     </aside>
                 </div>
             </nav>
@@ -181,16 +179,7 @@
         </div>
     </footer>
 
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myLinks");
-            if (x.style.display === "block") {
-                x.style.display = "none";
-            } else {
-                x.style.display = "block";
-            }
-        }
-    </script>
+    <script src="./JS/nav.js"></script>
 </body>
 
 </html>
