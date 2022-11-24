@@ -1,3 +1,5 @@
+let reset = document.createElement("button");
+reset.style.display = "none";
 var quiz = {
     data: [{
             q: "In welke landen groeien appels die we in Nederland kunnen kopen?",
@@ -88,7 +90,6 @@ draw: () => {
         quiz.hAns.appendChild(label);
     }
 },
-
 select: (option) => {
     let all = quiz.hAns.getElementsByTagName("label");
     for (let label of all) {
@@ -110,6 +111,7 @@ select: (option) => {
         } else {
             quiz.hQn.innerHTML = `Je hebt ${quiz.score} van de ${quiz.data.length} goed.`;
             quiz.hAns.innerHTML = "";
+            reset.style.display = "block";
         }
     }, 1000);
 },
@@ -117,15 +119,14 @@ select: (option) => {
 reset: () => {
     quiz.now = 0;
     quiz.score = 0;
-    quiz.draw();        
+    quiz.draw(); 
+reset.style.display = "none";   
 }
 };
 window.addEventListener("load", quiz.init);
 
-// show reset button after quiz is done if else statement
 
 window.addEventListener("load", () => {
-    let reset = document.createElement("button");
     reset.innerHTML = "Reset";
     reset.addEventListener("click", quiz.reset);
     document.getElementById("quizWrap").appendChild(reset);
