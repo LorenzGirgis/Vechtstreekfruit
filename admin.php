@@ -1,16 +1,19 @@
 <?php
 session_start();
 
-if (isset($_SESSION["username"])) {
-    if ($_SESSION["username"] === "Admin") {
-?>
+if (isset($_SESSION['username'])) {
+    if ($_SESSION['username'] === 'Admin') { ?>
 <?php
-$dsn = "mysql:dbname=restaurant;host=localhost";
-$servername = "localhost";
-$username = "root";
-$password = "root";
+$dsn = 'mysql:dbname=restaurant;host=localhost';
+$servername = 'localhost';
+$username = 'root';
+$password = 'root';
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=vechtsfruit", $username, $password);
+    $conn = new PDO(
+        "mysql:host=$servername;dbname=vechtsfruit",
+        $username,
+        $password
+    );
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     echo $e->getMessage();
@@ -18,26 +21,33 @@ try {
 ?>
 <?php
 if (isset($_POST['submit'])) {
-$rasnaam = $_POST['rasnaam'];
-$soort = $_POST['soort'];
-$aantal = $_POST['aantal'];
-$tijdvak = $_POST['tijdvak'];
-$jaarcheck = $_POST['jaarcheck'];
-$latitude = $_POST['latitude'];
-$longitude = $_POST['longitude'];
-
-$pdoQuery = " INSERT INTO `bomen`(`rasnaam`, `soort`, `aantal`, `tijdvak`, `jaarcheck`, `latitude`, `longitude`) VALUES (:rasnaam, :soort, :aantal, :tijdvak, :jaarcheck, :latitude, :longitude)";
-$pdoQuery_run = $conn->prepare($pdoQuery);
-$pdoQuery_execc = $pdoQuery_run->execute(array(":rasnaam"=>$rasnaam, ":soort"=>$soort, ":aantal"=>$aantal, ":tijdvak"=>$tijdvak, ":jaarcheck"=>$jaarcheck, ":latitude"=>$latitude, ":longitude"=>$longitude));
-if ($pdoQuery_execc) {
-    echo "<p><center>Boom is toegevoegd</center></p>";
-    header ("Location: kaart.php");
-} else {
-    echo "<p><center>Boom is niet toegevoegd</center></p>";
+    $rasnaam = $_POST['rasnaam'];
+    $soort = $_POST['soort'];
+    $aantal = $_POST['aantal'];
+    $tijdvak = $_POST['tijdvak'];
+    $jaarcheck = $_POST['jaarcheck'];
+    $latitude = $_POST['latitude'];
+    $longitude = $_POST['longitude'];
+    $pdoQuery =
+        ' INSERT INTO `bomen`(`rasnaam`, `soort`, `aantal`, `tijdvak`, `jaarcheck`, `latitude`, `longitude`) VALUES (:rasnaam, :soort, :aantal, :tijdvak, :jaarcheck, :latitude, :longitude)';
+    $pdoQuery_run = $conn->prepare($pdoQuery);
+    $pdoQuery_execc = $pdoQuery_run->execute([
+        ':rasnaam' => $rasnaam,
+        ':soort' => $soort,
+        ':aantal' => $aantal,
+        ':tijdvak' => $tijdvak,
+        ':jaarcheck' => $jaarcheck,
+        ':latitude' => $latitude,
+        ':longitude' => $longitude,
+    ]);
+    if ($pdoQuery_execc) {
+        echo '<p><center>Boom is toegevoegd</center></p>';
+        header('Location: kaart.php');
+    } else {
+        echo '<p><center>Boom is niet toegevoegd</center></p>';
+    }
 }
-} 
-
-$mirvat = $conn->prepare("SELECT * FROM bomen");
+$mirvat = $conn->prepare('SELECT * FROM bomen');
 $mirvat->execute();
 ?>
 <!DOCTYPE html>
@@ -105,7 +115,7 @@ $mirvat->execute();
                 </div>
             </div>
         </header>
-        <div class="flex justify-around text-center justify-evenly">
+        <!-- <div class="flex justify-around text-center justify-evenly">
 <form action="" method="post">
     <input type="text" name="rasnaam" placeholder="Rasnaam" required>
     <input type="text" name="soort" placeholder="Soort" required>
@@ -116,13 +126,49 @@ $mirvat->execute();
     <input type="text" name="longitude" placeholder="Longitude" required>
     <button type="submit" name="submit"> Submit</button>
 </form>
-                        </div>
+                        </div> -->
 
-<!-- display: flex;
-    max-width: 1024px;
-    flex-direction: column;
-    text-align: center;
-    margin: 0 auto; -->
+
+
+                        <form class="flex justify-center" action="" method="post">
+    <div class="grid gap-6 mb-6 md:grid-cols-8">
+        <div>
+            <label for="rasnaam" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rasnaam</label>
+            <input type="text" name="rasnaam" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rasnaam" required>
+        </div>
+        <div>
+            <label for="soort" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Soort</label>
+            <input type="text" name="soort" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Soort" required>
+        </div>
+        <div>
+            <label for="aantal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Aantal</label>
+            <input type="number" name="aantal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Aantal" required>
+        </div>  
+        <div>
+            <label for="tijdvak" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tijdvak</label>
+            <input type="text" name="tijdvak" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tijdvak" required>
+        </div>
+        <div>
+            <label for="jaarcheck" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jaarcheck</label>
+            <input type="number" name="jaarcheck" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jaarcheck" required>
+        </div>
+        <div>
+            <label for="latitude" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Latitude</label>
+            <input type="text" name="latitude" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Latitude" required>
+        </div>
+        <div>
+            <label for="longitude" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Longitude</label>
+            <input type="text" name="longitude" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Longitude" required>
+        </div>
+        <div>
+        <button type="submit" name="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-7">Submit</button>
+    </div>
+                        </div>
+</form>
+
+
+
+
     <div class="flex flex-col">
   <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
@@ -154,41 +200,47 @@ $mirvat->execute();
               <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                 Longitude
               </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                Edit
+              </th>
             </tr>
           </thead>
           <tbody>
-          <?php
-            while ($row = $mirvat->fetch(PDO::FETCH_ASSOC)) {
-            ?>
+          <?php while ($row = $mirvat->fetch(PDO::FETCH_ASSOC)) { ?>
             <tr class="bg-white border-b">
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              <?= $row["id"] ?>
+              <?= $row['id'] ?>
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              <?= $row["rasnaam"] ?>
+              <?= $row['rasnaam'] ?>
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              <?= $row["soort"] ?>
+              <?= $row['soort'] ?>
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              <?= $row["aantal"] ?>
+              <?= $row['aantal'] ?>
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              <?= $row["tijdvak"] ?>
+              <?= $row['tijdvak'] ?>
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              <?= $row["jaarcheck"] ?>
+              <?= $row['jaarcheck'] ?>
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              <?= $row["latitude"] ?>
+              <?= $row['latitude'] ?>
               </td>
               <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-              <?= $row["longitude"] ?>
+              <?= $row['longitude'] ?>
               </td>
+
+              <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+              <a href="edit.php?id=<?= $row['id'] ?>">Edit</a>
+            <a onclick="return confirm('Are you sure you want to delete this entry?')" href="delete.php?id=<?= $row[
+                'id'
+            ] ?>" class='btn btn-danger'>Delete</a>   
+
             </tr>
-            <?php
-            }
-            ?>
+            <?php } ?>
           </tbody>
         </table>
       </div>
@@ -199,11 +251,7 @@ $mirvat->execute();
 </html>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
-<?php
+<?php } else {header('Location: index.php');}
 } else {
-        header("Location: index.php");
-    }
-} else {
-    header("Location: index.php");
-}
-?>
+    header('Location: index.php');
+} ?>
