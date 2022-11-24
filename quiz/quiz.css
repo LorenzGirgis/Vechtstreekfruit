@@ -22,13 +22,14 @@
     z-index: -1;
     }
 
-    {
+    * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Prompt", sans-serif;
     position: relative;
     }
+    
     body,
     html {
     height: 100%;
