@@ -45,7 +45,8 @@ $mirvat->execute();
     <link rel="stylesheet" type="text/css" href="style.css" /> 
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-    crossorigin=""></script>
+    crossorigin="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.78.0/dist/L.Control.Locate.min.js" charset="utf-8"></script>
   </head>
   <body>
@@ -60,7 +61,7 @@ $mirvat->execute();
 
 var database = <?php echo json_encode($mirvat->fetchAll(PDO::FETCH_ASSOC)); ?>;
 for (var i = 0; i < database.length; i++) {
-    var marker = L.marker([database[i].latitude, database[i].longitude], {icon: redIcon});
+    var marker = L.marker([database[i].latitude, database[i].longitude], {icon: blueMarker});
     marker.bindPopup("<b>Rasnaam: </b>" + database[i].rasnaam + "<br><b>Soort: </b>" + database[i].soort + "<br><b>Aantal: </b>" + database[i].aantal + "<br><b>Tijdvak: </b>" + database[i].tijdvak + "<br><b>Jaarcheck: </b>" + database[i].jaarcheck + "<br><b>Latitude: </b>" + database[i].latitude + "<br><b>Longitude: </b>" + database[i].longitude).addTo(map);
 }
   </script>
