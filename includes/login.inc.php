@@ -17,7 +17,7 @@ include_once('connection.php');
 
 function test_input($data) {
 	
-	$data = trim($data);
+	$data = trim($data);s
 	$data = stripslashes($data);
 	$data = htmlspecialchars($data);
 	return $data;
