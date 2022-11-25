@@ -1,34 +1,25 @@
 // map display
-var map = L.map('map').setView([52.25459030239216, 5.040947601205085], 18);
+var map = L.map('map').setView([52.25459030239216, 5.040947601205085],17.5);
 L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
-maxZoom: 20,
+maxZoom: 21,
 subdomains:['mt0','mt1','mt2','mt3']
 }).addTo(map);
 
 
-
 // picture appel
 var blueMarker = L.icon({
-  iconUrl: "appel.png",
+  iconUrl: "boom1.png",
 
-    iconSize:     [38, 45], // Don't touche
+    iconSize:     [45, 60], // Don't touche
     iconAnchor:   [12, 41], // point of the icon which will correspond to marker's location
     popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     
 });
+L.control.locate().addTo(map);
 
 var map = L.map('map').fitWorld();
-
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-}).addTo(map);
-
 // locatie
 map.locate({setView: true, maxZoom: 16}); 
-
-// locatie button
-L.control.locate().addTo(map);
 
 // circle of location radius
 function onLocationFound(e) {
