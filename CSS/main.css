@@ -51,8 +51,6 @@
 body {
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    height: 300vh;
     background-color: #fefefe;
     margin: 0;
     padding: 0;
@@ -99,7 +97,7 @@ body {
     color: #454545;
     padding: 10px 10px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
     display: block;
 }
 
