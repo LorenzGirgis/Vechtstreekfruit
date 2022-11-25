@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@200&display=swap");
+
+.container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+        url(../Assets/quiz/appel.jpg);
+    background-size: cover;
+    z-index: -1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Prompt", sans-serif;
+    position: relative;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+button {
+    background-color: hsl(0, 76%, 35%);
+    border-radius: 8px;
+    color: white;
+    font-weight: 400;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    font-weight: bold;
+}
+
+button:active {
+    background-color: hsl(0, 78%, 18%);
+}
+
+#quizWrap {
+    max-width: 850px;
+    font-family: "Prompt", sans-serif;
+}
+
+#quizQn {
+    padding: 20px 0;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+#quizAns {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#quizAns input[type="radio"] {
+    display: none;
+}
+
+#quizAns label {
+    background: #fafafa;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 5px 0;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#quizAns label.correct {
+    background: #d8ffc4;
+    border: 1px solid #60a03f;
+}
+
+#quizAns label.wrong {
+    background: #ffe8e8;
+    border: 1px solid #c78181;
+}
+#home {
+    padding-bottom: 80vh;
+}

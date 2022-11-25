@@ -1,0 +1,118 @@
+/* Styling */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;400;600&display=swap');
+
+.subFont {
+    font-family: 'League Spartan', sans-serif;
+    color: #454545;
+    text-align: left;
+    font-weight: 200;
+}
+
+.title {
+    font-family: 'League Spartan', sans-serif;
+    color: #454545;
+    text-align: left;
+    font-weight: 400;
+}
+
+.mainFont {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    color: #454545;
+    text-align: left;
+}
+
+.grey {
+    color: #454545;
+}
+
+.orchardGreen {
+    background: linear-gradient(#45B649, #DCE35B);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.read:hover {
+    color: #45B649;
+}
+
+.glass {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.3px);
+    -webkit-backdrop-filter: blur(10.3px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Main content*/
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    margin: 0;
+    padding: 0;
+}
+
+#page1 {
+    width: 100vw;
+    height: 100vh;
+}
+
+#page2 {
+    width: 100vw;
+    height: 100vh;
+}
+
+#page3 {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../Assets/home/farmer.jpg");
+    background-size: cover;
+}
+
+/* Classes */
+.centered {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.spacing {
+    padding-top: 3vh;
+}
+
+
+.bottom {
+    padding-top: 35vh;
+    padding-left: 2vw;
+}
+
+/* Hamburger */
+
+.highlight a {
+    float: left;
+    color: #454545;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 15px;
+    display: block;
+}
+
+.highlight a.icon {
+    display: inline;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.highlight a:hover {
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #454545;
+}
