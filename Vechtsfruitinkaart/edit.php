@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (isset($_SESSION["username"])) {
     if ($_SESSION["username"] === "Admin") {
 ?>
@@ -48,6 +47,27 @@ if ($pdoQuery_execc) {
 }
 $mirvat = $conn->prepare('SELECT * FROM bomen');
 $mirvat->execute();
+
+// update button code
+if (isset($_POST['submit'])) {
+    $rasnaam = $_POST['rasnaam'];
+    $soort = $_POST['soort'];
+    $aantal = $_POST['aantal'];
+    $tijdvak = $_POST['tijdvak'];
+    $jaarcheck = $_POST['jaarcheck'];
+    $latitude = $_POST['latitude'];
+    $longitude = $_POST['longitude'];
+
+    $pdoqueryUS = "UPDATE bomen SET rasnaam=:rasnaam, soort=:soort, aantal=:aantal, tijdvak=:tijdvak, jaarcheck=:jaarcheck, latitude=:latitude, longitude=:longitude";
+    $pdoquery_runUS = $dbconn->prepare($pdoqueryUS);
+    $pdoquery_execUS = $pdoquery_runUS->execute(array(":rasnaam"=>$rasnaam, ":soort"=>$soort, ":aantal"=>$aantal, ":tijdvak"=>$tijdvak, ":jaarcheck"=>$jaarcheck, ":latitude"=>$latitude, ":longitude"=>$longitude));
+
+    if ($pdoquery_execUS) {
+        echo '<script> alert("Data updated") </script>';
+    } else {
+        echo 'No data updated';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -118,124 +138,43 @@ $mirvat->execute();
             </div>
         </div>
     </header>
-    <h1 class="flex justify-center">Bomen Toevoegen</h1>
+    <h1 class="flex justify-center">Bomen Editen</h1>
     <br>
-<div class="mx-auto w-11/12">   
-    <form action="" method="post">
+    <form class="flex justify-center" action="" method="post">
 <div class="grid gap-6 mb-6 md:grid-cols-8">
     <div>
         <label for="rasnaam" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rasnaam</label>
-        <input type="text" name="rasnaam" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rasnaam" required>
+        <input type="text" name="rasnaam" value="<?php echo $rasnaam ?>" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Rasnaam" required>
     </div>
     <div>
         <label for="soort" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Soort</label>
-        <input type="text" name="soort" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Soort" required>
+        <input type="text" name="soort" value="<?php echo $soort ?>" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Soort" required>
     </div>
     <div>
         <label for="aantal" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Aantal</label>
-        <input type="number" name="aantal" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Aantal" required>
+        <input type="number" name="aantal" value="<?php echo $aantal ?>" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Aantal" required>
     </div>  
     <div>
         <label for="tijdvak" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tijdvak</label>
-        <input type="text" name="tijdvak" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tijdvak" required>
+        <input type="text" name="tijdvak" value="<?php echo $tijdvak ?>" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tijdvak" required>
     </div>
     <div>
         <label for="jaarcheck" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jaarcheck</label>
-        <input type="number" name="jaarcheck" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jaarcheck" required>
+        <input type="number" name="jaarcheck" value="<?php echo $jaarcheck ?>" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jaarcheck" required>
     </div>
     <div>
         <label for="latitude" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Latitude</label>
-        <input type="text" name="latitude" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Latitude" required>
+        <input type="text" name="latitude" value="<?php echo $latitude ?>" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Latitude" required>
     </div>
     <div>
         <label for="longitude" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Longitude</label>
-        <input type="text" name="longitude" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Longitude" required>
+        <input type="text" name="longitude" value="<?php echo $longitude ?>" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Longitude" required>
     </div>
     <div>
-    <button type="submit" name="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-7">Submit</button>
+    <button type="submit" name="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-7">Submit</button>
 </div>
-</div>
-</div>
+                    </div>
 </form>
-<h1 class="flex justify-center">Bomen Editen/Deleten</h1>              
-<div class="flex">
-<div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-    <div class="overflow-hidden">
-    <table class="min-w-full">
-        <thead class="border-b">
-        <tr>
-        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-            #
-            </th>
-            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-            Rasnaam
-            </th>
-            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-            Soort
-            </th>
-            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-            Aantal
-            </th>
-            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-            Tijdvak
-            </th>
-            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-            Jaarcheck
-            </th>
-            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-            Latitude
-            </th>
-            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-            Longitude
-            </th>
-            <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-            Status
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php while ($row = $mirvat->fetch(PDO::FETCH_ASSOC)) { ?>
-        <tr class="bg-white border-b">
-            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-            <?= $row['id'] ?>
-            </td>
-            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-            <?= $row['rasnaam'] ?>
-            </td>
-            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-            <?= $row['soort'] ?>
-            </td>
-            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-            <?= $row['aantal'] ?>
-            </td>
-            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-            <?= $row['tijdvak'] ?>
-            </td>
-            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-            <?= $row['jaarcheck'] ?>
-            </td>
-            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-            <?= $row['latitude'] ?>
-            </td>
-            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-            <?= $row['longitude'] ?>
-            </td>
-
-            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-            <a href="edit.php?id=<?= $row['id'] ?>">
-            <button class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Edit</button>
-</a>
-        <a href="delete.php?id=<?= $row['id'] ?>"
-           onclick="return confirm('Are you sure you want to delete this entry?')" class='bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded'>Delete
-        </a>
-            </td>
-        </tr>
-        <?php } ?>
-        </tbody>
-    </table>
-</div>
-</div>
-</div>
 </body>
 </html>
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>

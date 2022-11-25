@@ -20,69 +20,76 @@ include('database.php');
 
 <body class="main">
     <section id="page1">
-        <header class="pb-5 relative z-20">
-            <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
-                <div x-data="{ open: false }"
-                    class="flex flex-col w-full px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
-                    <div class="p-4 flex flex-row items-center justify-between">
-                        <img src="./Assets/logo.png" class="h-6 mr-3 sm:h-9 drop-shadow-md" alt="Vechtstreekfruit">
-                        <a href="#"
-                            class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Vechtstreekfruit</a>
-                        <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline"
-                            @click="open = !open">
-                            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
-                                <path x-show="!open" fill-rule="evenodd"
-                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
-                                    clip-rule="evenodd"></path>
-                                <path x-show="open" fill-rule="evenodd"
-                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+        <header class="pb-5">
+            <nav class="bg-transparent static w-full">
+                <div class="container flex flex-wrap items-center justify-between mx-auto mt-4">
+                    <div class="flex items-center justify-start h-6">
+                        <img src="./Assets/logo.png" class="h-6 mr-3 sm:h-9 drop-shadow-md" alt="Vechtstreekfruit Logo">
+                        <a href="index.php"
+                            class="self-center text-xl title whitespace-nowrap drop-shadow-md">Vechtstreekfruit</a>
+                    </div>
+
+                    <div class="hidden w-full md:flex md:max-w-xs md:order-1 justify-center mr-96 lg:flex">
+                        <ul
+                            class="flex flex-col text-xl p-4 mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 mr-96">
+                            <li class="pl-10">
+                                <a href="index.php"
+                                    class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md"
+                                    aria-current="page">Over ons</a>
+                            </li>
+                            <li class="pl-10">
+                                <a href="#"
+                                    class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md"
+                                    aria-current="page">Blog</a>
+                            </li>
+                            <li class="pl-10">
+                                <a href="./HTML/quiz.html"
+                                    class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md">Quiz</a>
+                            </li>
+                            <li class="pl-10">
+                                <a href="kaart.php"
+                                    class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md">Kaart</a>
+                            </li>
+                            <li class="pl-10">
+                                <a href="#"
+                                    class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:hover:text-green-500 md:p-0 drop-shadow-md">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <aside class="flex md:order-2 lg:hidden highlight">
+                        <div id="navbar">
+                            <a href="#" class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent md:p-0 drop-shadow-md"
+                                aria-current="page">Over ons</a>
+                            <a href="#" class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent drop-shadow-md"
+                                aria-current="page">Blog</a>
+                            <a href="./HTML/quiz.html" class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent drop-shadow-md">Quiz</a>
+                            <a href="kaart.php" class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent drop-shadow-md">Kaart</a>
+                            <a href="#" class="truncate block py-2 pl-3 pr-4 grey rounded bg-transparent drop-shadow-md">Contact</a>
+                        </div>
+                        <button href="javascript:void(0);" class="icon" onclick="hamburger()">
+                            <svg class="w-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
                                     clip-rule="evenodd"></path>
                             </svg>
                         </button>
-                    </div>
-                    <nav :class="{'flex': open, 'hidden': !open}"
-                        class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
-                        <a class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            href="#">Over ons</a>
-                        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            href="">Blog</a>
-                        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            href="">Diensten</a>
-                        <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            href="kaart.php">Kaart</a>
-                        <?php
-                        if (isset($_SESSION["userid"])) {
-                            if ($_SESSION["username"] === "Admin") {
-                        ?>
-                        <a href="admin.php" class="mr-4">Admin</a>
-                        <a href="includes/logout.inc.php">Logout</a>
-                        <?php   
-                            } else {
-                        ?>
-                        <a class="mr-4"><?= $_SESSION["username"] ?></a>
-                        <a href="includes/logout.inc.php">Logout</a>
-                        <?php
-                            }
-                        } else {
-                        ?>
-                         <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                            href="login.php">Inloggen</a>
-                        <?php
-                        }
-                        ?>
-                    </nav>
+                    </aside>
                 </div>
-            </div>
+            </nav>
         </header>
 
         <article>
-            <img src="./Assets/home/Left Graphic.png"
-                class="absolute hidden md:block md:h-5/6 z-10 md:bottom-0 md:left-0" alt="Left graphic">
-            <img src="./Assets/home/Right Graphic.png"
-                class="absolute hidden md:block md:h-5/6 z-10 md:top-0 md:right-0" alt="Right graphic">
+            <div class="container mx-auto">
+                <img src="./Assets/home/Left Graphic.png"
+                    class="absolute hidden md:block md:h-5/6 z-10 md:bottom-0 md:left-0" alt="Left graphic">
+                <img src="./Assets/home/Right Graphic.png"
+                    class="absolute hidden md:block md:h-5/6 z-10 md:top-0 md:right-0" alt="Right graphic">
+            </div>
         </article>
 
-        <article class="relative z-10">
+        <article>
             <div class="container mx-auto">
                 <div class="flex flex-wrap centered">
                     <div class="text-center">
@@ -96,22 +103,31 @@ include('database.php');
                     </div>
                 </div>
         </article>
+
     </section>
 
     <section id="page2">
-        <div class="z-0 w-full h-full">
-            <img src="https://cdn.pixabay.com/photo/2016/08/20/20/57/autumn-1608537_960_720.png" class="i n1"></img>
-            <img src="https://purepng.com/public/uploads/large/purepng.com-yellow-leafautumnleavesleafmapleseasonfall-541521070454nw6oe.png"
-                class="i n2"></img>
-            <img src="https://www.freepngimg.com/thumb/autumn%20leaves/3-autumn-png-leaf-thumb.png" class="i n3"></img>
-            <img src="https://cdn.pixabay.com/photo/2016/08/20/20/57/autumn-1608537_960_720.png" class="i n4"></img>
-            <img src="https://purepng.com/public/uploads/large/purepng.com-yellow-leafautumnleavesleafmapleseasonfall-541521070454nw6oe.png"
-                class="i n5"></img>
-            <img src="https://www.freepngimg.com/thumb/autumn%20leaves/3-autumn-png-leaf-thumb.png" class="i n6"></img>
-
-            <iframe src='https://my.spline.design/untitled-965b91290eb7e3f37c500c5499022a76/' frameborder='0'
-                width='100%' height='100%'>
-            </iframe>
+        <div class="relative flex items-center align-middle h-screen overflow-hidden">
+            <div class="absolute z-30 text-2xl text-white bg-transparent bg-opacity-50 rounded-lg p-10 glass ml-10 mr-10">
+                <div class="flex justify-start flex-col">
+                    <h1 class="grey mainFont">Hoeveel fruit verspillen we per jaar?</h1>
+                    <p class="grey subFont break-normal">
+                        Wereldwijd verspillen we op dit moment 1555 miljoen ton aan voedsel per jaar.
+                        <br><br> Dat is 1/3 van het totale voedsel dat geproduceerd wordt.
+                        <br><br> Waaonder, 644 miljoen ton afval (42%) komt van fruit en groenten.
+                        <br>
+                    </p>
+                    <a href="https://toogoodtogo.be/nl-be/movement/knowledge/what-food-is-wasted" target="_blank" class="spacing">
+                        <button class="grey rounded-md read">
+                            Lees meer
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <video autoplay loop muted class="absolute z-10 w-auto min-w-full min-h-full max-w-none">
+                <source src="./Assets/home/apples.mp4" type="video/mp4" alt="Falling Apples" />
+                Your browser does not support the video tag.
+            </video>
         </div>
     </section>
 
@@ -120,37 +136,34 @@ include('database.php');
             <div class="container mx-auto">
                 <div class="flex flex-wrap justify-start align-middle">
                     <div class="text-center">
-                        <h1 class="text-6xl mainFont text-white drop-shadow-md">Onze visie</h1>
-                        <p class="text-4xl subFont spacing pt-10 text-white drop-shadow-md">Het bouwen van een
+                        <h1 class="text-5xl mainFont text-white drop-shadow-md">Onze visie</h1>
+                        <p class="text-3xl subFont spacing pt-10 text-white drop-shadow-md">Het bouwen van een
                             collectief
                             van
                             boomgaarden die samen zorgen voor:
                         </p>
-                        <ul class="text-3xl subFont text-white drop-shadow-md">
-                            <li class="pt-10">Het versterken van lokale biodiversiteit en cultureel erfgoed</li>
-                            <li class="pt-10">Kennis uitwisseling, aanplant en onderhoud</li>
-                            <li class="pt-10">Verwerken van de oogst tot mooie lokale producten</li>
-                            <li class="pt-10">Herwaardering van bijzondere, oude fruitrassen</li>
+                        <ul class="text-2xl subFont text-white drop-shadow-md overflow-auto">
+                            <li class="pt-16">Het versterken van lokale biodiversiteit en cultureel erfgoed</li>
+                            <li class="pt-16">Kennis uitwisseling, aanplant en onderhoud</li>
+                            <li class="pt-16">Verwerken van de oogst tot mooie lokale producten</li>
+                            <li class="pt-16">Herwaardering van bijzondere, oude fruitrassen</li>
                         </ul>
                     </div>
                 </div>
             </div>
     </section>
+    
+    <footer class="text-center lg:text-left">
+        <div class="text-center p-4 subFont" style="background-color: rgba(255, 255, 255, 0.2);">
+            Vreechstreek Fruit © 2022
+            <a href="./HTML/legal.html" class="read pl-5" target="_blank">Legal</a>
+            <a href="https://mbo.bit-academy.nl/" class="read pl-5" target="_blank">BitAcademy</a>
+            <a href="https://www.google.com/maps" class="read pl-5" target="_blank">Google Maps</a>
+            <a href="https://github.com/LorenzGirgis/Vechtstreekfruit/" class="read pl-5" target="_blank">GitHub</a>
+        </div>
+    </footer>
 
-    <section id="page4">
-
-    </section>
-
+    <script src="./JS/nav.js"></script>
 </body>
-
-<footer class="text-center lg:text-left">
-    <div class="text-center p-4" style="background-color: rgba(255, 255, 255, 0.2);">
-        © 2022 Copyright:
-        <a class="text-green-800" href="#">De Wilde Boomgaard</a>
-    </div>
-</footer>
-
-<script src="script.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
 </html>

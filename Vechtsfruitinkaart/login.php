@@ -13,6 +13,10 @@ if (isset($_SESSION["userid"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="./Assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./Assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./Assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./Assets/favicon/site.webmanifest">
     <title>Login</title>
 </head>
 
@@ -20,7 +24,7 @@ if (isset($_SESSION["userid"])) {
     <div class="h-screen flex justify-center items-center w-full">
         <div class="bg-white px-10 py-16 rounded-xl w-screen shadow-md max-w-sm">
             <div class="space-y- 30">
-                <img class="" src="image.png">
+                <img class="" src="Assets/image.png">
 
                 <div>
                     <div class="space-y-12">
