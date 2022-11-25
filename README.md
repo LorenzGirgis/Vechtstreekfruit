@@ -7,16 +7,15 @@
 For Bit Academy's Deep Dive, all students were required to do an assignment for a real-life client. For our team, we were assigned Vechtstreek Fruit by Willem Groeneveld. 
 
 During our initial meeting, we learnt about Mr. Groeneveld's goals and ideas for this project.
-As a result, we sat down as a team and brainstormed and discussed what we thought was important. 
 
-Here's a quick summary: 
+Key features: 
 - Map with an overview with clear indication of the location of the trees, with an overview of information. 
 - Clear and concise administration panel where the owner, or user's with access, can easily add and update relevant information to the map and the database. 
 - General questionnaire regarding fruit sorts; for this demo we used apples.
 - Redesign of the visuals of the current website, as we beleived this should be just as admirable with the goals of Mr.Groeneveld 
 - Mobile friendly design as this was of importance to the wishes of the client.
 
-Overall, we wanted to create a design that was intuitive, informative, and eye-catching. We believe we have accomplished all of this and met the client's  requirements. 
+Overall, we wanted a design that was intuitive, informative, and eye-catching. 
 
 So, without further ado, let's get started on our project! 
 
@@ -74,7 +73,7 @@ An overview of the asset's used for this project.
 | Map Icon | [Tree](https://www.flaticon.com/free-icon/tree_2220094) |
 
 
-## Role's
+## Roles
 
 An overview of the roles and assignments
 
