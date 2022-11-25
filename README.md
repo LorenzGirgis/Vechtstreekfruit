@@ -32,11 +32,11 @@ We wanted the design of the website to emphasize this objective.
 
 ## Tech Stack
 
-We used a number of open source platforms and frameworks to ensure all of this:
+We used a number of open-source platforms and frameworks to ensure all of this:
 
-- [Tailwind](https://tailwindcss.com/) - Tailwind is an open source CSS design framework.
+- [Tailwind](https://tailwindcss.com/) - Tailwind is an open-source CSS design framework.
 - [HTML](https://en.wikipedia.org/wiki/HTML) - HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser.
-- [Javascript](https://www.javascript.com/) - A lightweight dynamic computer programming language, most commonly used as a part of web pages, whose implementations allow client-side script to interact with the user and make dynamic pages.
+- [JavaScript](https://www.javascript.com/) - A lightweight dynamic computer programming language, most commonly used as a part of web pages, whose implementations allow client-side script to interact with the user and make dynamic pages.
 - [CSS](https://en.wikipedia.org/wiki/CSS) - Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML. 
 - [SQL](https://en.wikipedia.org/wiki/SQL) - Structured Query Language (SQL) is a standardized programming language that is used to manage relational databases and perform various operations on the data in them.
 - [PDO](https://www.php.net/manual/en/book.pdo.php) - PHP Data Objects, also known as PDO, is an interface for accessing databases in PHP without tying code to a specific database.
