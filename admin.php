@@ -115,8 +115,8 @@ $mirvat->execute();
             </div>
         </div>
     </header>
-
-                    <form class="flex justify-center" action="" method="post">
+<div class="mx-auto w-11/12">
+                    <form action="" method="post">
 <div class="grid gap-6 mb-6 md:grid-cols-8">
     <div>
         <label for="rasnaam" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Rasnaam</label>
@@ -149,7 +149,8 @@ $mirvat->execute();
     <div>
     <button type="submit" name="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-7">Submit</button>
 </div>
-                    </div>
+</div>
+</div>
 </form>
                         
 <div class="flex">
